@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>TikTok OAuth callback</title>
+</head>
+<body>
+  <h1>Autorizacion recibida</h1>
+  <p>Copia el valor de "code" de abajo y pegalo en la terminal donde corre tiktok_auth_setup.py:</p>
+  <pre id="code" style="padding: 1em; background: #eee; word-break: break-all;"></pre>
+  <p>state (para verificar que coincide con el que te imprimio la terminal):</p>
+  <pre id="state" style="padding: 1em; background: #eee;"></pre>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById("code").textContent = params.get("code") || "(no vino code en la URL)";
+    document.getElementById("state").textContent = params.get("state") || "";
+  </script>
+</body>
+</html>
